@@ -1,0 +1,22 @@
+{% extends 'SALOON/saloonindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/MyApp/accbook/">
+     {% csrf_token %}
+  <table class="table table-bordered">
+      <input type="hidden" value="{{ id }}" name="id">
+    <tr>
+      <td>Time</td>
+      <td><label for="textfield"></label>
+      <input type="time" name="textfield" id="textfield" class="form-control" required />
+      </td>
+    </tr>
+      <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="Submit" class="btn btn-success"/>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

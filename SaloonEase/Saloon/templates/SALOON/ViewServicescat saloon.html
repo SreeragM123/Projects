@@ -1,0 +1,38 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'SALOON/saloonindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/MyApp/view_sercat_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <td>
+      <input type="text" name="textfield" id="textfield" class="form-control" required/></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-warning"/></td>
+    </tr>
+  </table>
+  <table class="table table-bordered">
+    <tr>
+      <th scope="col">SLNo</th>
+      <th scope="col">Category</th>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.Category }}&nbsp;</td>
+      <td><div align="center"><a href="/MyApp/del_sercat/{{ i.id }}" class="btn btn-success">DELETE</a></div></td>
+      <td><div align="center"><a href="/MyApp/add_ser/{{ i.id }}" class="btn btn-danger">SERVICES</a></div></td>
+      <td><div align="center"><a href="/MyApp/view_ser/{{ i.id }}" class="btn btn-danger">VIEW SERVICES</a></div></td>
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

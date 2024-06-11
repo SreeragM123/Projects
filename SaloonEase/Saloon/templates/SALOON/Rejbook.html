@@ -1,0 +1,47 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'SALOON/saloonindex.html'%}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/MyApp/viewrejbook_post/">
+    {% csrf_token %}
+     <table class="table table-bordered">
+    <tr>
+      <td>From</td>
+      <td>
+      <input type="date" name="textfield" id="textfield" class="form-control" required/></td>
+            <td>To</td>
+      <td>
+      <input type="date" name="textfield2" id="textfield" class="form-control" required/></td>
+            <td><input type="submit" name="button" id="button" value="Search" class="btn-warning" /></td>
+    </tr>
+  </table>
+  <table class="table table-bordered">
+   <tr>
+      <th scope="col">SLNo</th>
+      <th scope="col">Date</th>
+      <th scope="col">Name</th>
+      <th scope="col">Service</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Booked On</th>
+      <th scope="col">Status</th>
+    </tr>
+       {% for i in data %}
+    <tr>
+       <td>{{ forloop.counter }}&nbsp;</td>
+        <td>{{ i.BOOKING.Date }}&nbsp;</td>
+      <td>{{ i.BOOKING.USER.Name }}&nbsp;</td>
+      <td>{{ i.SERVICES.Servicename }}&nbsp;</td>
+      <td>{{ i.SERVICES.Price }}&nbsp;</td>
+      <td>{{ i.BOOKING.BDate }}&nbsp;</td>
+      <td>{{ i.BOOKING.Status }}&nbsp;</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

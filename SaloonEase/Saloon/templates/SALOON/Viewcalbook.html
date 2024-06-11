@@ -1,0 +1,45 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'SALOON/saloonindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/MyApp/calbook/">
+    {% csrf_token %}
+{#  <table class="table table-bordered">#}
+{#    <tr>#}
+{#      <td>#}
+{#      <input type="hidden" name="id" value="{{ id }}" class="form-control" required/>#}
+{#      <input type="text" name="textfield" id="textfield" class="form-control" required/>#}
+{#      </td>#}
+{#      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-warning"/></td>#}
+{#    </tr>#}
+{#  </table>#}
+  <table class="table table-bordered">
+    <tr>
+      <th scope="col">Token</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Service Name</th>
+      <th scope="col">Time</th>
+{#      <th scope="col">Price</th>#}
+{#      <th scope="col">&nbsp;</th>#}
+{#      <th scope="col">&nbsp;</th>#}
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ i.BOOKING.Token }}</td>
+      <td>{{ i.BOOKING.USER.Name }}&nbsp;</td>
+      <td>{{ i.SERVICES.Servicename }}&nbsp;</td>
+      <td>{{ i.BOOKING.Time }}&nbsp;</td>
+{#      <td>{{ i.Price }}&nbsp;</td>#}
+{#      <td><div align="center"><a href="/MyApp/edit_ser/{{ i.id }}" class="btn btn-success">EDIT</a></div></td>#}
+{#      <td><div align="center"><a href="/MyApp/del_ser/{{ i.id }}" class="btn btn-danger">DELETE</a></div></td>#}
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

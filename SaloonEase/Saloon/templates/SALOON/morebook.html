@@ -1,0 +1,41 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'SALOON/saloonindex.html'%}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/MyApp/more_book/">
+    {% csrf_token %}
+{#     <table class="table table-bordered">#}
+{#    <tr>#}
+{#      <td>From</td>#}
+{#      <td><label for="textfield"></label>#}
+{#      <input type="date" name="textfield" id="textfield" class="form-control" /></td>#}
+{#            <td>To</td>#}
+{#      <td><label for="textfield"></label>#}
+{#      <input type="date" name="textfield2" id="textfield" class="form-control"/></td>#}
+{#            <td><input type="submit" name="button" id="button" value="Search" class="btn-warning" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+  <table class="table table-bordered">
+    <tr>
+      <th scope="col">SLNo</th>
+      <th scope="col">Service Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Amount</th>
+    </tr>
+       {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}&nbsp;</td>
+      <td>{{ i.SERVICES.Servicename }}&nbsp;</td>
+      <td>{{ i.SERVICES.Description }}&nbsp;</td>
+      <td>{{ i.SERVICES.Price }}&nbsp;</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

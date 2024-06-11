@@ -1,0 +1,87 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'SALOON/saloonindex.html' %}
+{% block body %}
+<body>
+<form action="/MyApp/editemp_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+     {% csrf_token %}
+  <table class="table table-bordered">
+      <input type="hidden" value="{{ data.id }}" name="id">
+    <tr>
+      <td>Name</td>
+      <td><label for="textfield"></label>
+      <input type="text" value="{{ data.Name }}" name="textfield" id="textfield" class="form-control" pattern="[A-Z a-z ]+" required/></td>
+    </tr>
+    <tr>
+      <td>Age</td>
+      <td><label for="textfield2"></label>
+      <input type="text" value="{{ data.Age }}" name="textfield2" id="textfield2" class="form-control"  min="20" required/></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><p>
+        <label>
+          <input type="radio" name="RadioGroup1" {% if data.Gender == 'Male' %}checked{% endif %} value="Male" id="RadioGroup1_0" class="form-control"/>
+          Male
+        </label>
+        <br />
+        <label>
+          <input type="radio" name="RadioGroup1" {% if data.Gender == 'Female' %}checked{% endif %} value="Female" id="RadioGroup1_1" class="form-control"/>
+          Female
+        </label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label for="textfield3"></label>
+      <input type="text" value="{{ data.Place }}" name="textfield3" id="textfield3" class="form-control" pattern="[A-Z a-z ]+" required/></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label for="textfield4"></label>
+      <input type="text" value="{{ data.Post }}" name="textfield4" id="textfield4" class="form-control" pattern="[A-Z a-z ]+" required/></td>
+    </tr>
+      <td>Pincode</td>
+      <td><label for="textfield5"></label>
+      <input type="text" value="{{ data.Pin }}" name="textfield5" id="textfield5" class="form-control" pattern="[0-9]{6}" required/></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><label for="textfield6"></label>
+      <input type="text" value="{{ data.District }}" name="textfield6" id="textfield6" class="form-control" pattern="[A-Z a-z ]+" required/></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><label for="textfield7"></label>
+      <input type="text" value="{{ data.State }}" name="textfield7" id="textfield7" class="form-control" pattern="[A-Z a-z ]+" required/></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label for="textfield8"></label>
+      <input type="text" value="{{ data.Email }}" name="textfield8" id="textfield8"class="form-control" pattern="[^ @]*@[^ @]*" placeholder="Enter your email" required /></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><label for="fileField"></label>
+           <img src="{{ data.Image }}" height="100px" width="100px">
+      <input type="file" name="fileField" id="fileField" class="form-control" /></td>
+    </tr>
+   <td>Qualification</td>
+      <td><label for="fileField"></label>
+           <img src="{{ data.Qualification }}" height="100px" width="100px">
+      <input type="file" name="fileField1" id="fileField" class="form-control" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="Edit" class="btn btn-success"/>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

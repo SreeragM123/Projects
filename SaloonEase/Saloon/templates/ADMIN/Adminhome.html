@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/MyApp/adminhome/">
+    {% csrf_token %}
+  <p><a href="/MyApp/add_saloon/">ADD SALOON</a></p>
+  <p><a href="/MyApp/view_saloon/">VIEW SALOON</a></p>
+  <p><a href="/MyApp/view_emp/">VIEW EMPLOYEE</a></p>
+  <p><a href="/MyApp/view_org/">VIEW ORGANIZATION</a></p>
+    <p><a href="/MyApp/view_adaccdonreq/">VIEW ACCEPTED DONATIONS</a></p>
+      <p><a href="/MyApp/view_apporg/">VIEW APPROVED ORGANIZATION</a></p>
+  <p><a href="/MyApp/view_rejorg/">VIEW REJECTED ORGANIZATION</a></p>
+  <p><a href="/MyApp/don_his/">DONATION HISTORY</a></p>
+  <p><a href="/MyApp/report/">VIEW REPORT</a></p>
+  <p><a href="/MyApp/feedback/">VIEW FEEDBACK</a></p>
+  <p><a href="/MyApp/chng_pass/">CHANGE PASSWORD</a></p>
+    <p><a href="#">LOGOUT</a></p>
+
+</form>
+</body>
+</html>

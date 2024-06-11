@@ -1,0 +1,220 @@
+{#{% extends 'SALOON/saloonindex.html'%}#}
+{#{% block body %}#}
+{#<body>#}
+{#    <h2>Calendar View</h2>#}
+{#    <table class="table table-bordered">#}
+{#        <thead>#}
+{#            <tr>#}
+{#                <th>Sun</th>#}
+{#                <th>Mon</th>#}
+{#                <th>Tue</th>#}
+{#                <th>Wed</th>#}
+{#                <th>Thu</th>#}
+{#                <th>Fri</th>#}
+{#                <th>Sat</th>#}
+{#            </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#            <tr>#}
+{#                <td> </td>#}
+{#                <td></td>#}
+{#                <td></td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>1</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>2</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>3</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>4</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>5</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>6</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>7</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>8</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>9</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>10</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>11</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>12</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>13</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>14</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>15</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>16</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>17</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>18</td>#}
+{#           </tr>#}
+{#           <tr>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>19</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>20</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>21</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>22</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>23</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>24</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>25</td>#}
+{#           </tr>#}
+{#            <tr>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>26</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>27</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>28</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>29</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>30</td>#}
+{#                <td {% if  booked == "yes" %} style="color: #00aced"{% endif %}>31</td>#}
+{#                <td></td>#}
+{#            </tr>#}
+{#        </tbody>#}
+{#    </table>#}
+{#</body>#}
+{#{% endblock %}#}
+{##}
+
+<!-- your_template.html -->
+
+{% extends 'SALOON/saloonindex.html' %}
+{% block body %}
+<body>
+    <h2>Calendar View</h2>
+    <h2>Select a Month</h2><br><br>
+    <form action="/MyApp/calview/" method="post">
+    <table>
+      <tr> <td> <select name="monthSelect" class="form-control">
+
+        <option hidden value="{{ month }}">
+            {% if month == 1  %}
+                January
+            {% elif month == 2  %}
+                February
+            {% elif month == 3  %}
+                March
+            {% elif month == 4  %}
+                April
+            {% elif month == 5  %}
+                May
+            {% elif month == 6  %}
+                June
+            {% elif month == 7  %}
+                July
+            {% elif month == 8  %}
+                August
+            {% elif month == 9  %}
+                September
+            {% elif month == 10  %}
+                October
+            {% elif month == 11  %}
+                November
+            {% elif month == 12  %}
+                December
+
+            {% endif %}
+        </option>
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select></td>
+        <td>  <input type="submit" value="Search" class="btn btn-warning"></td></tr></table>
+    </form>
+    <div id="calendar"></div>
+
+  <script>
+    var month = {{ month }};
+    var bookings = {{ bookings|safe }};
+
+    function generateCalendar(month, bookings) {
+        var numDays = new Date(2024, month, 0).getDate();
+        var calendarHTML = '<table class="table table-bordered">';
+        calendarHTML += '<thead><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr></thead>';
+        calendarHTML += '<tbody>';
+
+        var startDate = new Date(2024, month - 1, 1);
+        var startDay = startDate.getDay();
+
+        calendarHTML += '<tr>';
+        for (var i = 0; i < startDay; i++) {
+            calendarHTML += '<td></td>';
+        }
+
+        for (var day = 1; day <= numDays; day++) {
+            if ((startDay + day - 1) % 7 === 0) {
+                calendarHTML += '</tr><tr>';
+            }
+            try {
+                var booked = bookings[day][0] === "yes";
+                var colorStyle = booked ? 'style="background: #00aced"' : 'style="background: green"';
+                var bkd = day + ' \nTokens: ' + bookings[day][1];
+                var link = '<a href="/MyApp/calbook/' + day + '" style="color:black">' + day + '</a>';
+                calendarHTML += '<td ' + colorStyle + '>' + link + '</td>';
+            } catch (e) {
+                calendarHTML += '<td>' + day + '</td>';
+            }
+        }
+
+        for (var i = (startDay + numDays - 1) % 7; i < 6; i++) {
+            calendarHTML += '<td></td>';
+        }
+
+        calendarHTML += '</tr></tbody></table>';
+
+        document.getElementById('calendar').innerHTML = calendarHTML;
+    }
+
+    generateCalendar(month, bookings);
+</script>
+
+
+
+
+{#    <script>#}
+{#        var month = {{ month }};#}
+{#        var bookings = {{ bookings|safe }};#}
+{##}
+{#        function generateCalendar(month, bookings) {#}
+{#            var numDays = new Date(2024, month, 0).getDate();#}
+{#            var calendarHTML = '<table class="table table-bordered">';#}
+{#            calendarHTML += '<thead><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr></thead>';#}
+{#            calendarHTML += '<tbody>';#}
+{##}
+{#            var startDate = new Date(2024, month - 1, 1);#}
+{#            var startDay = startDate.getDay();#}
+{##}
+{#            calendarHTML += '<tr>';#}
+{#            for (var i = 0; i < startDay; i++) {#}
+{#                calendarHTML += '<td></td>';#}
+{#            }#}
+{##}
+{#            for (var day = 1; day <= numDays; day++) {#}
+{#                if ((startDay + day - 1) % 7 === 0) {#}
+{#                    calendarHTML += '</tr><tr>';#}
+{#                }#}
+{#                try{#}
+{#                    alert(bookings[day][0]);#}
+    {#                var bk = bookings[day].split(',');#}
+{#                    var booked = bookings[day][0] === "yes" ? 'style="color: #00aced"' : 'style="color: green"';#}
+{#                    var bkd = day+  ' \nTokens: '+ bookings[day][1];#}
+{#                    alert(bkd);#}
+{#                    bookings[day][0] === "yes" ? calendarHTML += '<td style="background: #00aced;" ' + booked + '>' + bkd + '</td>' : calendarHTML += '<td style="background: #00FF00;" ' + booked + '>' + day+ '</td>' ;#}
+{#                }catch (e){#}
+{#                    alert(e);#}
+{#                    calendarHTML += '<td style="background: #00FF00;" ' + booked + '>' + day + '</td>' ;#}
+{#                }#}
+{#            }#}
+{##}
+{#            for (var i = (startDay + numDays - 1) % 7; i < 6; i++) {#}
+{#                calendarHTML += '<td></td>';#}
+{#            }#}
+{##}
+{#            calendarHTML += '</tr></tbody></table>';#}
+{##}
+{#            document.getElementById('calendar').innerHTML = calendarHTML;#}
+{#        }#}
+{##}
+{#        generateCalendar(month, bookings);#}
+{#    </script>#}
+</body>
+{% endblock %}

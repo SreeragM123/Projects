@@ -1,0 +1,45 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'ADMIN/adminindex.html'%}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/MyApp/vieworg_post/">
+    {% csrf_token %}
+     <table class="table table-bordered">
+    <tr>
+      <th scope="col">
+      <input type="text" name="textfield" id="textfield" class="form-control" required/></th>
+      <th scope="col"><input type="submit" name="button" id="button" value="Search" class="btn btn-warning" /></th>
+    </tr>
+  </table>
+  <table class="table table-bordered">
+    <tr>
+      <th width="42" scope="col">SLNo</th>
+      <th width="43" scope="col">Name</th>
+      <th width="57" scope="col">License</th>
+      <th width="41" scope="col">Email</th>
+      <th width="44" scope="col">Phone</th>
+      <th width="39" scope="col">Address</th>
+      <th width="19" scope="col">&nbsp;</th>
+      <th width="8" scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}&nbsp;</td>
+      <td>{{ i.Name }}&nbsp;</td>
+      <td><img src="{{ i.License }}" height="100px" width="100px">&nbsp;</td>
+      <td>{{ i.Email }}&nbsp;</td>
+      <td>{{ i.Phone }}&nbsp;</td>
+      <td>{{ i.Place }}&nbsp;<br>{{ i.Post }}&nbsp;<br>{{ i.District }}&nbsp;<br>{{ i.State }}&nbsp;<br> {{ i.Pin }}</td>
+      <td><div align="center"><a href="/MyApp/approveorg/{{ i.LOGIN.id }}" class="btn btn-success">APPROVE</a></div></td>
+      <td><div align="center"><a href="/MyApp/rejectorg/{{ i.LOGIN.id }}" class="btn btn-danger">REJECT</a></div></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
