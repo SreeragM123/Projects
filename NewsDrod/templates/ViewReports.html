@@ -1,0 +1,44 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered">
+    <tr>
+      <th >From</th>
+      <th>
+      <input type="date" name="textfield" required id="textfield" class="form-control"/></th>
+      <th>To</th>
+      <th>
+      <input type="date" name="textfield2" required id="textfield2" class="form-control"/></th>
+      <th><input type="submit" name="button" id="button" value="Search" class="btn btn-dark"/></th>
+    </tr>
+  </table>
+  <table class="table table-bordered">
+    <tr>
+      <th>Slno</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Added By</th>
+      <th>Reported By</th>
+      <th>Reported Message</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+      {% for i in w %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.NEWS.title }}</td>
+      <td>{{ i.USER.name }}&nbsp;</td>
+      <td>{{ i.USER.name }}&nbsp;</td>
+      <td>{{ i.reportmsg }}&nbsp;</td>
+      <td><a href="/MyAPP/mngusernews/{{ i.USER.LOGIN.id }}">News</a></td>
+      <td><a href="/MyAPP/remove_news/{{ i.id }}" onclick="return confirm('Do You Want to Remove This')">Remove</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

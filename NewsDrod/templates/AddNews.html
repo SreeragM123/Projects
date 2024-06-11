@@ -1,0 +1,55 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form action="/MyAPP/addnews_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+  <table class="table table-bordered">
+       <tr>
+      <td>Date</td>
+      <td><input type="date" name="date" id="date" required class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td><input type="text" name="textfield" required id="textfield" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td><textarea name="textarea" required id="textarea" cols="45" rows="5" class="form-control"></textarea></td>
+    </tr>
+    <tr>
+      <td>Photos</td>
+      <td><input type="file" name="fileField"  id="fileField" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><input type="text" name="textfield2" required id="textfield2" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td><input type="text" name="textfield3" required pattern="[a-zA-Z]+" id="textfield3" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><input type="text" name="textfield4"  required pattern="[a-zA-Z]+" id="textfield4" class="form-control"/></td>
+    </tr>
+      <tr>
+          <td>Category</td>
+          <td><select name="category" required class="form-control">
+                            <option value="" selected >---Select---</option>
+
+              <option value="political">POLITICAL</option>
+              <option value="entertainment">ENTERTAINMENT</option>
+              <option value="buisness">BUISNESS</option>
+              <option value="sports">SPORTS</option>
+          </select></td>
+      </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="Post" class="btn btn-dark" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,62 @@
+
+from django.contrib import admin
+from django.urls import path
+
+from MyAPP import views
+
+urlpatterns = [
+    path('addnews/',views.addnews),
+    path('chngpass/',views.chngpass),
+    path('editnews/<id>',views.editnews),
+    path('login/',views.login),
+    path('mnguser/',views.mnguser),
+    path('mngusr_search/',views.mngusr_search),
+    path('mngusernews/<id>',views.mngusernews),
+    path('mngusrnews_search/',views.mngusrnews_search),
+    path('viewnews/',views.viewnews),
+    path('viewrep/',views.viewrep),
+    path('adminhome/',views.adminhome),
+
+    path('login_post/',views.login_post),
+    path('addnews_post/',views.addnews_post),
+    path('chngpass_post/',views.chngpass_post),
+    path('editnews_post/',views.editnews_post),
+    path('delete_news/<id>',views.delete_news),
+    path('viewnews_search/',views.viewnews_search),
+    path('viewnews_search_date/',views.viewnews_search_date),
+    path('remove_news/<id>',views.remove_news),
+    path('viewusernews/',views.viewusernews),
+    path('approveusrnews/<id>',views.approveusrnews),
+    path('viewapproved/',views.viewapprovednews),
+    path('approvednews_search/',views.approvednews_search),
+    path('rejectusrnews/<id>', views.rejectusrnews),
+    path('rejectednews_search/',views.rejectednews_search),
+    path('viewrejected/', views.viewrejectednews),
+    path('blockusr/<id>', views.blockusr),
+    path('blockeduser/',views.viewblockedusr),
+    path('blockedusr_search/',views.blockedusr_search),
+    path('unblockusr/<id>', views.unblockusr),
+    path('unblockeduser/', views.viewunblockedusr),
+    path('unblockedusr_search/',views.unblockedusr_search),
+    path('logout/', views.logout),
+    path('forgotpass/',views.forgotpass),
+    path('forgotpass_post/',views.forgotpass_post),
+
+    path('User_login_post/',views.User_login_post),
+    path('User_signup_post/',views.User_signup_post),
+    path('User_signup_post/', views.User_signup_post),
+    path('User_editprofile_post/', views.User_editprofile_post),
+    path('User_addnews_post/', views.User_addnews_post),
+    path('User_editnews_post/', views.User_editnews_post),
+    path('User_reportnews_post/', views.User_reportnews_post),
+    path('User_chngpass_post/', views.User_chngpass_post),
+    path('User_view_profile/', views.User_view_profile),
+    path('User_viewnews/', views.User_viewnews),
+    path('User_viewmynews/', views.User_viewmynews),
+    path('User_editnews_post/', views.User_editnews_post),
+    path('User_editview_news/', views.User_editview_news),
+    path('User_delete_news/', views.User_delete_news),
+    path('forgot_pass_post/', views.forgot_pass_post),
+    path('User_viewnews_date/', views.User_viewnews_date),
+
+]

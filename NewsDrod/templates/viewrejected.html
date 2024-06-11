@@ -1,0 +1,40 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/MyAPP/rejectednews_search/">
+    {% csrf_token %}
+<table class="table table-bordered">
+    <tr>
+      <th>From</th>
+      <th><input type="date" name="textfield" required id="textfield" class="form-control"/></th>
+      <th>To</th>
+      <th><input type="date" name="textfield2" required id="textfield2" class="form-control"/></th>
+      <th><input type="submit" name="button" id="button" value="Search" class="btn btn-dark"/></th>
+    </tr>
+  </table>
+  <table class="table table-bordered">
+    <tr>
+      <th>Slno</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Photos</th>
+      <th>Username</th>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td height="85">{{ forloop.counter }}</td>
+      <td>{{ i.date }}&nbsp;</td>
+      <td>{{ i.title }}&nbsp;</td>
+      <td>{{ i.description }}&nbsp;</td>
+      <td><img src="{{ i.photos }}"height="60px"width="60px"></td>
+      <td>{{ i.LOGIN.username }}&nbsp;</td>
+
+    </tr>
+      {% endfor %}
+
+  </table>
+</form>
+</body>
+{% endblock %}

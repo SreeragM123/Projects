@@ -1,0 +1,95 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/MyAPP/login_post/">#}
+{#    {% csrf_token %}#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>Username</td>#}
+{#      <td><input type="text" name="textfield" id="textfield" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Password</td>#}
+{#      <td><input type="text" name="textfield2" id="textfield2" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td colspan="2"><div>#}
+{#        <input type="submit" name="button" id="button" value="Login" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Forgot Password</a>#}
+{#      </div>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td colspan="2"><div align="center"><a href="#">SignUp</a></div></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<html lang="en">
+
+<head>
+    <title>Material Login Form a Responsive Widget Template :: w3layouts</title>
+    <!-- meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Art Sign Up Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates,
+		Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design"
+    />
+    <!-- /meta tags -->
+    <!-- custom style sheet -->
+    <link href="/static/login/css/style.css" rel="stylesheet" type="text/css" />
+    <!-- /custom style sheet -->
+    <!-- fontawesome css -->
+    <link href="/static/login/css/fontawesome-all.css" rel="stylesheet" />
+    <!-- /fontawesome css -->
+    <!-- google fonts-->
+    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <!-- /google fonts-->
+
+</head>
+
+
+<body>
+    <h1>LOGIN</h1>
+    <div class=" w3l-login-form">
+{#        <h2>Login Here</h2>#}
+        <form action="/MyAPP/forgotpass_post/" method="POST">
+            {% csrf_token %}
+            <div class=" w3l-form-group">
+                <label>Email:</label>
+                <div class="group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" class="form-control" placeholder="Username" name="textfield" required="required" />
+                </div>
+            </div>
+{#            <div class=" w3l-form-group">#}
+{#                <label>Password:</label>#}
+{#                <div class="group">#}
+{#                    <i class="fas fa-unlock"></i>#}
+{#                    <input type="password" class="form-control" placeholder="Password" name="textfield2" required="required" />#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="forgot">#}
+{#                <a href="#">Forgot Password?</a>#}
+{#                <p><input type="checkbox">Remember Me</p>#}
+{#            </div>#}
+            <button type="submit">RESET</button>
+        </form>
+{#        <p class=" w3l-register-p">Don't have an account?<a href="#" class="register"> Register</a></p>#}
+    </div>
+    <footer>
+{#        <p class="copyright-agileinfo">NEWS DROID</p>#}
+    </footer>
+
+</body>
+</html>
